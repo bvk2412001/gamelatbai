@@ -90,10 +90,10 @@ export class GameController extends Component {
                     this.oldCard = card;
                 } else {
                     if (this.oldCard.cardType == card.cardType) {
-                        let removeIndex1 = this.cardList.findIndex( item => item.getComponent(Card).cardType === this.oldCard.card.cardType );
+                        let removeIndex1 = this.cardList.findIndex( item => item === this.oldCard.node);
                         this.cardList.splice(removeIndex1, 1);
                         this.oldCard.node.destroy();
-                        let removeIndex = this.cardList.findIndex( item => item.getComponent(Card).cardType === card.cardType );
+                        let removeIndex = this.cardList.findIndex( item => item === card.node);
                         this.cardList.splice(removeIndex, 1);
                         card.node.destroy();
                         this.oldCard = null;
